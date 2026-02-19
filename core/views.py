@@ -9,7 +9,7 @@ def home(request):
     portfolios = Portfolio.objects.all()[:3]
     testimonials = Testimonial.objects.filter(is_approved=True)[:4]
 
-    return render(request, 'home.html', {
+    return render(request, 'Home.html', {
         'services': services,
         'portfolios': portfolios,
         'testimonials': testimonials
