@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+
+<section class="py-20 bg-slate-900 text-white">
+    <div class="max-w-6xl mx-auto px-6">
+
+        <h2 class="text-4xl font-bold text-center mb-12">
+            All Client Feedback
+        </h2>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            {% for t in testimonials %}
+            <div class="bg-slate-800 p-6 rounded-xl">
+                <p class="text-yellow-400 mb-2">
+                    {% for i in "12345" %}
+                        {% if forloop.counter <= t.rating %}
+                            ⭐
+                        {% endif %}
+                    {% endfor %}
+                </p>
+
+                <p class="text-slate-400 mb-4">
+                    "{{ t.message }}"
+                </p>
+
+                <h4 class="font-semibold">{{ t.name }}</h4>
+                <p class="text-sm text-slate-500">{{ t.company }}</p>
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+</section>
+{% endblock content %}

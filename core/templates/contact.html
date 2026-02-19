@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<section class="py-20 bg-slate-900 text-white min-h-screen">
+    <div class="max-w-6xl mx-auto px-6">
+
+        <h2 class="text-4xl font-bold text-center mb-12">
+            Schedule a Call
+        </h2>
+
+        {% if success %}
+        <div class="bg-green-600 p-4 rounded-lg mb-6 text-center">
+            Your message has been sent successfully!
+        </div>
+        {% endif %}
+
+        <div class="grid md:grid-cols-2 gap-10">
+
+            <!-- LEFT SIDE FORM -->
+            <div class="bg-slate-800 p-8 rounded-2xl shadow-lg">
+                <form method="POST" class="space-y-6">
+                    {% csrf_token %}
+
+                    <div>
+                        <label class="block mb-2">Name</label>
+                        <input type="text" name="name" required
+                               class="w-full p-3 rounded-lg bg-slate-700">
+                    </div>
+
+                    <div>
+                        <label class="block mb-2">Email</label>
+                        <input type="email" name="email" required
+                               class="w-full p-3 rounded-lg bg-slate-700">
+                    </div>
+
+                    <div>
+                        <label class="block mb-2">Phone</label>
+                        <input type="text" name="phone"
+                               class="w-full p-3 rounded-lg bg-slate-700">
+                    </div>
+
+                    <div>
+                        <label class="block mb-2">Message</label>
+                        <textarea name="message" rows="4" required
+                                  class="w-full p-3 rounded-lg bg-slate-700"></textarea>
+                    </div>
+
+                    <button type="submit"
+                        class="w-full bg-purple-600 p-3 rounded-lg font-semibold hover:bg-purple-700 transition">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+
+            <!-- RIGHT SIDE MAP -->
+           <!-- RIGHT SIDE MAP -->
+<div class="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-700 group">
+
+    <!-- Overlay Glow Effect -->
+    <div class="absolute inset-0 bg-gradient-to-br from-purple-600/20 to-indigo-600/20 opacity-0 group-hover:opacity-100 transition duration-500 pointer-events-none"></div>
+
+    <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d55101.599231179636!2d78.04002555000001!3d30.326785549999993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39092846cd215001%3A0x5aa73f63c1350498!2sAmwala%20Manjhala%2C%20Dehradun%2C%20Uttarakhand%20248001!5e0!3m2!1sen!2sin!4v1771479277939!5m2!1sen!2sin"
+        class="w-full h-[300px] sm:h-[400px] md:h-full"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+
+</div>
+
+
+        </div>
+
+    </div>
+</section>
+{% endblock content %}

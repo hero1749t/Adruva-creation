@@ -1,0 +1,243 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- ================= HERO ================= -->
+<section class="text-center px-6 py-20 md:py-32">
+
+    <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight">
+        We Scale Brands With <br>
+        <span class="bg-gradient-to-r from-purple-600 to-indigo-500 bg-clip-text text-transparent">
+            Creative Digital Marketing
+        </span>
+    </h1>
+
+    <p class="mt-6 text-base sm:text-lg text-slate-400 max-w-2xl mx-auto">
+        Adruva Creation helps businesses grow through performance marketing,
+        social media management, and high-converting ad campaigns.
+    </p>
+
+    <div class="mt-10 flex flex-col sm:flex-row justify-center gap-4 sm:gap-6">
+        <a href="#services"
+           class="bg-gradient-to-r from-purple-600 to-indigo-500 px-8 py-3 rounded-lg font-semibold hover:scale-105 transition">
+            Explore Services
+        </a>
+
+        <a href="#portfolio"
+           class="border border-slate-700 px-8 py-3 rounded-lg hover:bg-slate-900 transition">
+            View Our Work
+        </a>
+    </div>
+
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section id="services" class="py-16 md:py-24 bg-slate-900">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">
+            Our Services
+        </h2>
+
+        <p class="text-slate-400 mb-12 max-w-2xl mx-auto">
+            We provide performance-driven marketing solutions to help your brand grow and scale.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            {% for service in services %}
+            <div class="bg-slate-800 p-8 rounded-xl hover:scale-105 transition duration-300">
+
+                <h3 class="text-xl md:text-2xl font-semibold mb-4">
+                    {{ service.title }}
+                </h3>
+
+                <p class="text-slate-400 mb-6">
+                    {{ service.short_description }}
+                </p>
+
+                <a href="{% url 'service_detail' service.id %}"
+                   class="text-purple-400 hover:underline">
+                    Learn More →
+                </a>
+
+            </div>
+            {% endfor %}
+
+        </div>
+
+        <div class="mt-12">
+            <a href="{% url 'services' %}"
+               class="bg-gradient-to-r from-purple-600 to-indigo-500 px-8 py-3 rounded-lg font-semibold hover:scale-105 transition">
+                View All Services
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<!-- ================= PORTFOLIO ================= -->
+<section id="portfolio" class="py-16 md:py-24 bg-slate-950">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+
+        <h2 class="text-3xl md:text-4xl font-bold mb-12">
+            Our Work
+        </h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            {% for portfolio in portfolios %}
+            <div class="bg-slate-900 p-8 rounded-xl hover:scale-105 transition">
+
+                <h3 class="text-lg md:text-xl font-semibold mb-3">
+                    {{ portfolio.title }}
+                </h3>
+
+                <p class="text-slate-400 mb-4">
+                    {{ portfolio.short_description }}
+                </p>
+
+                <p class="text-purple-400 font-semibold mb-6">
+                    {{ portfolio.results }}
+                </p>
+
+                <a href="{% url 'portfolio_detail' portfolio.id %}"
+                   class="text-purple-400 hover:underline">
+                    View Case Study →
+                </a>
+
+            </div>
+            {% endfor %}
+
+        </div>
+
+        <div class="mt-12">
+            <a href="{% url 'portfolio' %}"
+               class="bg-gradient-to-r from-purple-600 to-indigo-500 px-8 py-3 rounded-lg font-semibold">
+                View All Projects
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<!-- ================= WHY US ================= -->
+<section class="py-16 md:py-24 bg-slate-900 text-white">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">
+            Why Choose Adruva Creation?
+        </h2>
+
+        <p class="text-slate-400 mb-12 max-w-3xl mx-auto">
+            We combine creativity, data insights, and performance marketing
+            to deliver measurable growth for your brand.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+            <div class="bg-slate-800 p-8 rounded-xl hover:scale-105 transition">
+                <div class="text-3xl mb-4 text-purple-500">🚀</div>
+                <h3 class="text-xl font-semibold mb-3">Fast Results</h3>
+                <p class="text-slate-400">Quick campaign setup and optimization.</p>
+            </div>
+
+            <div class="bg-slate-800 p-8 rounded-xl hover:scale-105 transition">
+                <div class="text-3xl mb-4 text-purple-500">📈</div>
+                <h3 class="text-xl font-semibold mb-3">Growth Focused</h3>
+                <p class="text-slate-400">Data-driven strategies for scaling.</p>
+            </div>
+
+            <div class="bg-slate-800 p-8 rounded-xl hover:scale-105 transition">
+                <div class="text-3xl mb-4 text-purple-500">💡</div>
+                <h3 class="text-xl font-semibold mb-3">Creative Strategy</h3>
+                <p class="text-slate-400">Engaging campaigns that convert.</p>
+            </div>
+
+            <div class="bg-slate-800 p-8 rounded-xl hover:scale-105 transition">
+                <div class="text-3xl mb-4 text-purple-500">📊</div>
+                <h3 class="text-xl font-semibold mb-3">Data Insights</h3>
+                <p class="text-slate-400">Optimized performance marketing.</p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- ================= TESTIMONIALS ================= -->
+<section class="py-16 md:py-24 bg-slate-900 text-white">
+    <div class="max-w-6xl mx-auto px-6">
+
+        <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold">What Our Clients Say</h2>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {% for t in testimonials %}
+            <div class="bg-slate-800 p-6 rounded-xl shadow-lg">
+
+                <p class="text-yellow-400 mb-2">
+                    {% for i in "12345" %}
+                        {% if forloop.counter <= t.rating %}
+                            ⭐
+                        {% endif %}
+                    {% endfor %}
+                </p>
+
+                <p class="text-slate-400 mb-4">
+                    "{{ t.message|truncatewords:15 }}"
+                </p>
+
+                <h4 class="font-semibold">{{ t.name }}</h4>
+                <p class="text-sm text-slate-500">{{ t.company }}</p>
+
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="text-center mt-12 flex flex-col sm:flex-row justify-center gap-4">
+            <a href="{% url 'all_testimonials' %}"
+               class="bg-purple-600 px-6 py-3 rounded-lg">
+               View More Feedback
+            </a>
+
+            <a href="{% url 'add_feedback' %}"
+               class="border border-purple-600 px-6 py-3 rounded-lg">
+               Add Feedback
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="py-16 md:py-24 bg-slate-900 text-white border-t border-slate-800">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+
+        <h2 class="text-3xl md:text-5xl font-bold mb-6">
+            Ready to Scale Your Business?
+        </h2>
+
+        <p class="text-base md:text-lg text-slate-400 mb-10 max-w-2xl mx-auto">
+            Let’s build powerful marketing strategies that drive real growth.
+        </p>
+
+        <div class="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6">
+
+            <a href="/services/"
+               class="bg-purple-600 hover:bg-purple-700 px-8 py-4 rounded-xl font-semibold transition shadow-lg">
+                Get Plan
+            </a>
+
+            <a href="/contact/"
+               class="border border-purple-600 text-purple-400 hover:bg-purple-600 hover:text-white px-8 py-4 rounded-xl font-semibold transition">
+                Schedule Call
+            </a>
+
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

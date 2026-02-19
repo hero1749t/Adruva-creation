@@ -1,0 +1,67 @@
+
+{% extends "base.html" %}
+{% block content %}
+<section class="min-h-screen bg-slate-900 text-white py-20">
+    <div class="max-w-3xl mx-auto px-6">
+
+        <h2 class="text-4xl font-bold text-center mb-10">
+            Share Your Experience
+        </h2>
+
+        <form method="POST" enctype="multipart/form-data"
+              class="space-y-6 bg-slate-800 p-10 rounded-2xl shadow-lg">
+
+            {% csrf_token %}
+
+            <!-- Name -->
+            <div>
+                <label class="block mb-2">Your Name</label>
+                <input type="text" name="name" required
+                    class="w-full p-3 rounded-lg bg-slate-700 focus:outline-none">
+            </div>
+
+            <!-- Company -->
+            <div>
+                <label class="block mb-2">Company</label>
+                <input type="text" name="company"
+                    class="w-full p-3 rounded-lg bg-slate-700 focus:outline-none">
+            </div>
+
+            <!-- Message -->
+            <div>
+                <label class="block mb-2">Your Feedback</label>
+                <textarea name="message" rows="4" required
+                    class="w-full p-3 rounded-lg bg-slate-700 focus:outline-none"></textarea>
+            </div>
+
+            <!-- Rating -->
+            <div>
+                <label class="block mb-2">Rating</label>
+                <select name="rating"
+                    class="w-full p-3 rounded-lg bg-slate-700 focus:outline-none">
+                    <option value="5">⭐⭐⭐⭐⭐ (5)</option>
+                    <option value="4">⭐⭐⭐⭐ (4)</option>
+                    <option value="3">⭐⭐⭐ (3)</option>
+                    <option value="2">⭐⭐ (2)</option>
+                    <option value="1">⭐ (1)</option>
+                </select>
+            </div>
+
+            <!-- Image -->
+            <div>
+                <label class="block mb-2">Profile Image</label>
+                <input type="file" name="image"
+                    class="w-full p-3 rounded-lg bg-slate-700">
+            </div>
+
+            <!-- Submit -->
+            <button type="submit"
+                class="w-full bg-purple-600 hover:bg-purple-700 transition p-3 rounded-lg font-semibold">
+                Submit Feedback
+            </button>
+
+        </form>
+
+    </div>
+</section>
+{% endblock content %}

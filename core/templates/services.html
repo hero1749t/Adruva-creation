@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="py-24 bg-slate-950 text-white">
+    <div class="max-w-6xl mx-auto px-6">
+
+        <h1 class="text-4xl font-bold text-center mb-16">
+            Our Services
+        </h1>
+
+        <div class="grid md:grid-cols-3 gap-8">
+
+            {% for service in services %}
+            <div class="bg-slate-900 p-8 rounded-xl hover:scale-105 transition duration-300">
+
+                {% if service.image %}
+                <img src="{{ service.image.url }}" class="rounded-lg mb-6">
+                {% endif %}
+
+                <h2 class="text-2xl font-semibold mb-4">
+                    {{ service.title }}
+                </h2>
+
+                <p class="text-slate-400 mb-6">
+                    {{ service.short_description }}
+                </p>
+
+                <a href="{% url 'service_detail' service.id %}"
+                   class="text-purple-400 hover:underline">
+                    Learn More →
+                </a>
+
+            </div>
+            {% endfor %}
+
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}
